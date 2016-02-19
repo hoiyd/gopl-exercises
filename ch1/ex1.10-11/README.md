@@ -38,4 +38,4 @@ Get http://xxxxyyssshhhhhsssss.com: dial tcp: lookup xxxxyyssshhhhhsssss.com: no
 4.07s elapsed
 ```
 
-When a website just doesn't respond, it'll timeout after 30s.
+When a website just doesn't respond, it'll timeout after **30s**.
