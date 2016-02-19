@@ -10,8 +10,10 @@ import (
 	"os"
 )
 
+var Green = color.RGBA{0x00, 0xFF, 0x00, 0xFF}
+
 // Green curves in black background
-var palette = []color.Color{color.Black, color.RGBA{0x00, 0xFF, 0x00, 0xFF}}
+var palette = []color.Color{color.Black, Green}
 
 const (
 	whiteIndex = 0
