@@ -25,6 +25,6 @@ func main() {
 	case "512":
 		fmt.Printf("%x\n", sha512.Sum512(bytes))
 	default:
-		fmt.Printf("%s is not a valid option: 256 | 383 | 512\n", *sha)
+		fmt.Printf("%s is not a valid option: It should be 256 | 384 | 512.\n", *sha)
 	}
 }
