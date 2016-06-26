@@ -17,7 +17,7 @@ func main() {
 func noRecursiveComma(s string) string {
 	n := len(s)
 
-	if n < 3 {
+	if n <= 3 {
 		return s
 	}
 
