@@ -7,10 +7,13 @@ import (
 
 var pc [8]byte
 
-func main() {
+func init() {
 	for i := uint(0); i < 8; i++ {
 		pc[i] = byte(1 << i)
 	}
+}
+
+func main() {
 	c1 := sha256.Sum256([]byte("x"))
 	c2 := sha256.Sum256([]byte("X"))
 	fmt.Println(sha256DiffCount(c1, c2))
@@ -19,8 +22,8 @@ func main() {
 func sha256DiffCount(c1 [32]byte, c2 [32]byte) int {
 	count := 0
 	for i := 0; i < 32; i++ {
-		// count += bitCount(c1[i], c2[i])
-		count += popCount(c1[i], c2[i]) // or use popCount
+		count += bitCount(c1[i], c2[i])
+		// count += popCount(c1[i], c2[i]) // or use popCount
 	}
 	return count
 }
