@@ -17,7 +17,11 @@ func main() {
 
 func commaFloat(value string) string {
 	signal, s, suffix := preProcess(value)
-	return signal + comma(s) + "." + suffix
+	if signal == "-" {
+		return signal + comma(s) + "." + suffix
+	} else {
+		return comma(s) + "." + suffix
+	}
 }
 
 func comma(s string) string {
