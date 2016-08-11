@@ -27,6 +27,7 @@ func main() {
 	for i, course := range topoSortWithRingDetection(prereqs) {
 		fmt.Printf("%d:\t%s\n", i+1, course)
 	}
+	//Ring detected: data structures -> discrete math -> networks -> operating systems -> data structures
 }
 
 func indexOf(s string, slice []string) int {
@@ -46,7 +47,7 @@ func topoSortWithRingDetection(m map[string][]string) []string {
 	visitAll = func(items []string) {
 		for _, item := range items {
 			if i := indexOf(item, stack); i != -1 {
-				fmt.Printf("cycle: %s\n", strings.Join(append(stack[i:], item), " -> "))
+				fmt.Printf("Ring detected: %s\n", strings.Join(append(stack[i:], item), " -> "))
 				os.Exit(1)
 			}
 			if !seen[item] {
