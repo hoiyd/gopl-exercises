@@ -71,3 +71,16 @@ func TestCopy(t *testing.T) {
 		t.Error("TestCopy() fails!")
 	}
 }
+
+func TestAddAll(t *testing.T) {
+	var x IntSet
+	x.AddAll(1, 2, 3)
+	if x.Len() != 3 || x.String() != "{1 2 3}" {
+		t.Error("TestAddAll() fails!")
+	}
+
+	x.AddAll(5, 15, 24, 4)
+	if x.Len() != 7 || x.String() != "{1 2 3 4 5 15 24}" {
+		t.Error("TestAddAll() fails!")
+	}
+}

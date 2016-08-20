@@ -104,3 +104,10 @@ func (s *IntSet) Copy() *IntSet {
 
 	return &t
 }
+
+//Ex6.2, a variadic AddAll funtion that allows a list of values to be added
+func (s *IntSet) AddAll(values ...int) {
+	for _, value := range values {
+		s.Add(value)
+	}
+}
