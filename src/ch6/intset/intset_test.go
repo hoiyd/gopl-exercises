@@ -84,3 +84,33 @@ func TestAddAll(t *testing.T) {
 		t.Error("TestAddAll() fails!")
 	}
 }
+
+func TestInsersectWith(t *testing.T) {
+	var x, y IntSet
+	x.AddAll(1, 2, 3, 4)
+	y.AddAll(3, 4, 5)
+	x.IntersectWith(&y)
+	if x.Len() != 2 || x.String() != "{3 4}" {
+		t.Error("TestInsersectWith() fails!")
+	}
+}
+
+func TestDifferenceWith(t *testing.T) {
+	var x, y IntSet
+	x.AddAll(1, 2, 3, 4)
+	y.AddAll(3, 4, 5)
+	x.DifferenceWith(&y)
+	if x.Len() != 2 || x.String() != "{1 2}" {
+		t.Error("TestDifferenceWith() fails!")
+	}
+}
+
+func TestSymmetricDifference(t *testing.T) {
+	var x, y IntSet
+	x.AddAll(1, 2, 3, 4)
+	y.AddAll(3, 4, 5)
+	x.SymmetricDifference(&y)
+	if x.Len() != 3 || x.String() != "{1 2 5}" {
+		t.Error("TestSymmetricDifference() fails!")
+	}
+}

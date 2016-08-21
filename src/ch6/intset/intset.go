@@ -111,3 +111,30 @@ func (s *IntSet) AddAll(values ...int) {
 		s.Add(value)
 	}
 }
+
+//Ex6.3, insersection between two intsets
+func (s *IntSet) IntersectWith(t *IntSet) {
+	for i, tword := range t.words {
+		if i <= len(s.words) {
+			s.words[i] &= tword
+		}
+	}
+}
+
+//Ex6.3, elements in S but not in T
+func (s *IntSet) DifferenceWith(t *IntSet) {
+	for i, tword := range t.words {
+		if i <= len(s.words) {
+			s.words[i] &= ^tword // Difference = x & (^y)
+		}
+	}
+}
+
+//Ex6.3, elements ONLY in S or ONLY in T
+func (s *IntSet) SymmetricDifference(t *IntSet) {
+	for i, tword := range t.words {
+		if i <= len(s.words) {
+			s.words[i] ^= tword // Difference = x XOR y
+		}
+	}
+}
