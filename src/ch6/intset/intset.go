@@ -138,3 +138,19 @@ func (s *IntSet) SymmetricDifference(t *IntSet) {
 		}
 	}
 }
+
+//Ex6.4, return all elements in a slice
+func (s *IntSet) Elems() []int {
+	var slice []int
+	for i, word := range s.words {
+		if word == 0 {
+			continue
+		}
+		for j := 0; j < 64; j++ {
+			if word&(1<<uint(j)) != 0 {
+				slice = append(slice, 64*i+j)
+			}
+		}
+	}
+	return slice
+}

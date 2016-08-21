@@ -1,6 +1,7 @@
 package intset
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -112,5 +113,15 @@ func TestSymmetricDifference(t *testing.T) {
 	x.SymmetricDifference(&y)
 	if x.Len() != 3 || x.String() != "{1 2 5}" {
 		t.Error("TestSymmetricDifference() fails!")
+	}
+}
+
+func TestElems(t *testing.T) {
+	var x IntSet
+	x.AddAll(1, 2, 3, 4)
+	xElems := x.Elems()
+	ints := []int{1, 2, 3, 4}
+	if !reflect.DeepEqual(xElems, ints) {
+		t.Error("TestElems() fails!")
 	}
 }
